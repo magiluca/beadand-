@@ -1,30 +1,6 @@
 import sys
 import string
 
-def ascii():
-    for i in range(128):
-        string_value = chr(i)
-
-        # Test string value against constant strings.
-        if string_value in string.whitespace:
-            print(i, "WHITESPACE")
-        elif string_value in string.ascii_letters:
-            print(i, string_value, "ASCII_LETTER")
-        elif string_value in string.punctuation:
-            print(i, string_value, "PUNCTUATION")
-        elif string_value in string.digits:
-            print(i, string_value, "DIGIT")
-        else:
-            # Assume others are control characters.
-            print(i, "CONTROL")
-
-a=sys.argv
-
-#for i in range(1,len(sys.argv)-1):
-  #  for j in range(i+1,len(sys.argv)):
-   #     if a[i]>a[j]:
-    #        a[i],a[j]=a[j],a[i]
-     #       print(a)
 
 def kisbetu(a):
     for str in a:
@@ -32,29 +8,39 @@ def kisbetu(a):
             return True
         else:
             return False
+
 def nagybetu(a):
     for str in a:
         if 'A' <= str <= 'Z':
             return True
         else:
             return False
-def parosszamok(a):
+
+def szamok(a):
+
     for str in a:
-        if str=='2' or str=='4' or str== '6' or str == '8' or str == '1' or str == '3' or str == '5' or str == '7' or str == '9':
-            str=int(str)
-            if str%2==0:
-                str=str.str()
+        #sz = []
+        if '1' <= str <= '9':
+            return True
+        else:
+            return False
+
+def paratlanszamok(a):
+    if szamok(a)==True:
+        for i in a:
+            i=int(i)
+            if i%2 != 0:
+                i.__str__()
                 return True
             else:
                 return False
 
-
-def paratlanszamok(a):
-    for str in a:
-        if str == '1' or str == '3' or str == '5' or str == '7' or str == '9' or str=='2' or str=='4' or str== '6' or str == '8':
-            str = int(str)
-            if str % 2 != 0:
-                str = str.str()
+def parosszamok(a):
+    if szamok(a)==True:
+        for i in a:
+            i=int(i)
+            if i%2 == 0:
+                i.__str__()
                 return True
             else:
                 return False
@@ -68,9 +54,12 @@ def csaknulla(a):
 
 def ujlista(a):
     ls=[]
+    ls1=[]
     for i in a:
         if kisbetu(i) == True:
             ls.append(i)
+
+            ls=sorted(ls)
     for i in a:
         if nagybetu(i)==True:
             ls.append(i)
@@ -85,103 +74,4 @@ def ujlista(a):
             ls.append(i)
     return ls
 
-
-
-
 print(ujlista(sys.argv[1:]))
-
-
-
-#2
-import sys
-import string
-
-def ascii():
-    for i in range(128):
-        string_value = chr(i)
-
-        # Test string value against constant strings.
-        if string_value in string.whitespace:
-            print(i, "WHITESPACE")
-        elif string_value in string.ascii_letters:
-            print(i, string_value, "ASCII_LETTER")
-        elif string_value in string.punctuation:
-            print(i, string_value, "PUNCTUATION")
-        elif string_value in string.digits:
-            print(i, string_value, "DIGIT")
-        else:
-            # Assume others are control characters.
-            print(i, "CONTROL")
-
-a=sys.argv
-
-#for i in range(1,len(sys.argv)-1):
-  #  for j in range(i+1,len(sys.argv)):
-   #     if a[i]>a[j]:
-    #        a[i],a[j]=a[j],a[i]
-     #       print(a)
-
-def kisbetu(a):
-    for str in a:
-        if 'a' <= str <= 'z':
-            return True
-        else:
-            return False
-def nagybetu(a):
-    for str in a:
-        if 'A' <= str <= 'Z':
-            return True
-        else:
-            return False
-def parosszamok(a):
-    for str in a:
-        if str=='2' or str=='4' or str== '6' or str == '8' or str == '1' or str == '3' or str == '5' or str == '7' or str == '9':
-            str=int(str)
-            if str%2==0:
-                str=str.str()
-                return True
-            else:
-                return False
-
-
-def paratlanszamok(a):
-    for str in a:
-        if str == '1' or str == '3' or str == '5' or str == '7' or str == '9' or str=='2' or str=='4' or str== '6' or str == '8':
-            str = int(str)
-            if str % 2 != 0:
-                str = str.str()
-                return True
-            else:
-                return False
-
-def csaknulla(a):
-    for str in a:
-        if '0' == str :
-            return True
-        else:
-            return False
-
-def ujlista(a):
-    ls=[]
-    for i in a:
-        if kisbetu(i) == True:
-            ls.append(i)
-    for i in a:
-        if nagybetu(i)==True:
-            ls.append(i)
-    for i in a:
-        if parosszamok(i) == True:
-            ls.append(i)
-    for i in a:
-        if paratlanszamok(i) == True:
-            ls.append(i)
-    for i in a:
-        if csaknulla(i) == True:
-            ls.append(i)
-    return ls
-
-
-
-
-print(ujlista(sys.argv[1:]))
-
