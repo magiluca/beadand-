@@ -3,7 +3,6 @@
 import sys
 import string
 
-
 def kisbetu(a):
     for str in a:
         if 'a' <= str <= 'z':
@@ -77,3 +76,6 @@ def ujlista(a):
     return ls
 
 print(ujlista(sys.argv[1:]))
+
+
+
